@@ -9,8 +9,18 @@
 #define WIFI_PASSWORD "YOUR_WIFI_PASSWORD"
 
 // ── Firebase credentials ──────────────────────────────
-#define API_KEY       "AIzaSy..."   // your real AIza... key
-#define DATABASE_URL  "https://micro-grid-caf7e-default-rtdb.europe-west1.firebasedatabase.app/"
+#define API_KEY       "AIzaSyDew2TFnUlK2hwMh80_Nnz7DmkCS30rXGE"   // your real AIza... key
+#define DATABASE_URL  "ttps://micro-grid-caf7e-default-rtdb.europe-west1.firebasedatabase.app/"
+
+// ── Battery voltage divider ───────────────────────────
+// GPIO34 is ADC-only (safe for input). Adjust R1/R2 to match
+// your resistor values. Max measurable = 3.3 * (R1+R2)/R2
+// Example: R1=30kΩ, R2=10kΩ → max ≈ 13.2 V (good for 12 V systems)
+#define BAT_ADC_PIN      34
+#define R1               30000.0f   // upper resistor (Ω)
+#define R2               10000.0f   // lower resistor (Ω)
+#define ADC_REF          3.3f       // ESP32 ADC reference voltage
+#define ADC_RESOLUTION   4095.0f    // 12-bit ADC
 
 // ── Firebase objects ──────────────────────────────────
 FirebaseData fbdo;
@@ -21,34 +31,17 @@ bool signupOK = false;
 unsigned long lastSendTime = 0;
 const unsigned long SEND_INTERVAL = 2000; // send every 2 seconds
 
-// ── Simulation state ──────────────────────────────────
-float simTime = 0.0;
-
-// ── Simulate sensor readings ──────────────────────────
-float simPVVoltage() {
-  return 15.0 + 3.0 * sin(simTime / 20.0) + random(-10, 10) * 0.04;
-}
-
-float simPVCurrent() {
-  return 3.2 + 0.8 * sin(simTime / 25.0 + 1.0) + random(-10, 10) * 0.015;
-}
-
-float simSOC() {
-  float soc = 55.0 + 20.0 * sin(simTime / 120.0) + random(-10, 10) * 0.2;
-  return constrain(soc, 0.0, 100.0);
-}
-
-float simACVoltage() {
-  return 220.0 + 5.0 * sin(simTime / 15.0 + 0.5) + random(-10, 10) * 0.15;
-}
-
-float simACCurrent() {
-  return 4.5 + 1.2 * sin(simTime / 18.0 + 2.0) + random(-10, 10) * 0.02;
+// ── Read battery voltage via voltage divider ──────────
+float readBatteryVoltage() {
+  int raw = analogRead(BAT_ADC_PIN);
+  float vAdc = (raw / ADC_RESOLUTION) * ADC_REF;
+  return vAdc * (R1 + R2) / R2;
 }
 
 // ── Setup ─────────────────────────────────────────────
 void setup() {
   Serial.begin(115200);
+  analogReadResolution(12); // ensure 12-bit ADC resolution
 
   // Connect to WiFi
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
@@ -77,7 +70,7 @@ void setup() {
   Firebase.begin(&config, &auth);
   Firebase.reconnectWiFi(true);
 
-  Serial.println("Setup complete — starting simulation loop");
+  Serial.println("Setup complete — reading battery voltage");
 }
 
 // ── Loop ──────────────────────────────────────────────
@@ -88,31 +81,10 @@ void loop() {
   if (now - lastSendTime < SEND_INTERVAL) return;
   lastSendTime = now;
 
-  simTime += (SEND_INTERVAL / 1000.0); // advance sim clock
+  float batV = readBatteryVoltage();
 
-  // Read simulated values
-  float pvV  = simPVVoltage();
-  float pvI  = simPVCurrent();
-  float soc  = simSOC();
-  float acV  = simACVoltage();
-  float acI  = simACCurrent();
-  float power = pvV * pvI;
-
-  // ── Push to Firebase ──
-  bool ok = true;
-
-  ok &= Firebase.RTDB.setFloat(&fbdo, "/solar/voltage", pvV);
-  ok &= Firebase.RTDB.setFloat(&fbdo, "/solar/current", pvI);
-  ok &= Firebase.RTDB.setFloat(&fbdo, "/solar/soc",     soc);
-  ok &= Firebase.RTDB.setFloat(&fbdo, "/ac/voltage",    acV);
-  ok &= Firebase.RTDB.setFloat(&fbdo, "/ac/current",    acI);
-
-  // Serial monitor feedback
-  if (ok) {
-    Serial.printf(
-      "[OK] PV: %.2fV / %.2fA / %.1fW | SOC: %.1f%% | AC: %.1fV / %.2fA\n",
-      pvV, pvI, power, soc, acV, acI
-    );
+  if (Firebase.RTDB.setFloat(&fbdo, "/battery/voltage", batV)) {
+    Serial.printf("[OK] Battery: %.2f V\n", batV);
   } else {
     Serial.printf("[ERR] Firebase write failed: %s\n", fbdo.errorReason().c_str());
   }

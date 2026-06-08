@@ -8,7 +8,6 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@400;500;700;800&display=swap"
       rel="stylesheet"
     />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
     <style>
       *,
       *::before,
@@ -115,13 +114,8 @@
         animation: pulse 1.5s ease-in-out infinite;
       }
       @keyframes pulse {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0.3;
-        }
+        0%, 100% { opacity: 1; }
+        50%       { opacity: 0.3; }
       }
       .timestamp {
         font-family: "IBM Plex Mono", monospace;
@@ -175,18 +169,10 @@
         right: 0;
         height: 2px;
       }
-      .card-accent.teal {
-        background: linear-gradient(90deg, var(--teal), transparent);
-      }
-      .card-accent.amber {
-        background: linear-gradient(90deg, var(--amber), transparent);
-      }
-      .card-accent.blue {
-        background: linear-gradient(90deg, var(--blue), transparent);
-      }
-      .card-accent.red {
-        background: linear-gradient(90deg, var(--red), transparent);
-      }
+      .card-accent.teal  { background: linear-gradient(90deg, var(--teal),  transparent); }
+      .card-accent.amber { background: linear-gradient(90deg, var(--amber), transparent); }
+      .card-accent.blue  { background: linear-gradient(90deg, var(--blue),  transparent); }
+      .card-accent.red   { background: linear-gradient(90deg, var(--red),   transparent); }
       .card-label {
         font-size: 10px;
         font-family: "IBM Plex Mono", monospace;
@@ -201,18 +187,10 @@
         line-height: 1;
         letter-spacing: -1px;
       }
-      .card-value.teal {
-        color: var(--teal);
-      }
-      .card-value.amber {
-        color: var(--amber);
-      }
-      .card-value.blue {
-        color: var(--blue);
-      }
-      .card-value.red {
-        color: var(--red);
-      }
+      .card-value.teal  { color: var(--teal); }
+      .card-value.amber { color: var(--amber); }
+      .card-value.blue  { color: var(--blue); }
+      .card-value.red   { color: var(--red); }
       .card-unit {
         font-size: 13px;
         font-weight: 400;
@@ -226,7 +204,7 @@
         color: var(--text-secondary);
       }
 
-      /* ── Power card special ── */
+      /* ── Power card ── */
       .power-card {
         background: var(--surface);
         border: 1px solid rgba(245, 166, 35, 0.2);
@@ -294,8 +272,6 @@
         align-items: flex-start;
         margin-bottom: 14px;
       }
-      .soc-value-block {
-      }
       .soc-number {
         font-size: 42px;
         font-weight: 800;
@@ -320,10 +296,7 @@
         align-items: center;
         justify-content: center;
       }
-      .soc-icon svg {
-        width: 100%;
-        height: 100%;
-      }
+      .soc-icon svg { width: 100%; height: 100%; }
       .soc-track {
         background: var(--surface2);
         border: 1px solid var(--border);
@@ -334,9 +307,7 @@
       .soc-fill {
         height: 100%;
         border-radius: 5px;
-        transition:
-          width 0.8s ease,
-          background 0.4s;
+        transition: width 0.8s ease, background 0.4s;
       }
       .soc-segments {
         display: flex;
@@ -347,76 +318,10 @@
         color: var(--text-muted);
       }
 
-      /* ── Charts ── */
-      .chart-card {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        padding: 18px 20px;
-      }
-      .chart-title {
-        font-size: 12px;
-        font-family: "IBM Plex Mono", monospace;
-        color: var(--text-secondary);
-        margin-bottom: 14px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .chart-badge {
-        font-size: 10px;
-        padding: 2px 7px;
-        border-radius: 4px;
-        font-family: "IBM Plex Mono", monospace;
-      }
-      .chart-badge.teal {
-        background: var(--teal-dim);
-        color: var(--teal);
-      }
-      .chart-badge.blue {
-        background: var(--blue-dim);
-        color: var(--blue);
-      }
-      .chart-badge.amber {
-        background: var(--amber-dim);
-        color: var(--amber);
-      }
-      .chart-badge.red {
-        background: rgba(245, 74, 74, 0.12);
-        color: var(--red);
-      }
-      .chart-wrap {
-        position: relative;
-        width: 100%;
-        height: 160px;
-      }
-
       /* ── Layouts ── */
       .grid-2 {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 14px;
-      }
-      .grid-3 {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 14px;
-      }
-
-      .main-grid {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: 14px;
-        margin-bottom: 14px;
-      }
-      .charts-col {
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-      }
-      .right-col {
-        display: flex;
-        flex-direction: column;
         gap: 14px;
       }
 
@@ -443,9 +348,7 @@
         flex-shrink: 0;
         margin-top: 1px;
       }
-      .firebase-notice-text {
-        line-height: 1.6;
-      }
+      .firebase-notice-text { line-height: 1.6; }
       .firebase-notice code {
         background: rgba(74, 168, 245, 0.12);
         padding: 1px 5px;
@@ -454,18 +357,8 @@
       }
 
       @media (max-width: 720px) {
-        .main-grid {
-          grid-template-columns: 1fr;
-        }
-        .grid-2 {
-          grid-template-columns: 1fr;
-        }
-        .grid-3 {
-          grid-template-columns: 1fr 1fr;
-        }
-        .power-big {
-          font-size: 36px;
-        }
+        .grid-2    { grid-template-columns: 1fr; }
+        .power-big { font-size: 36px; }
       }
     </style>
   </head>
@@ -474,15 +367,10 @@
     <header class="header">
       <div class="header-left">
         <div class="logo-mark">
-          <svg
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M10 2L12.5 7.5H18L13.5 11L15.5 17L10 13.5L4.5 17L6.5 11L2 7.5H7.5L10 2Z"
-              fill="#00d4aa"
-              opacity="0.9"
+              fill="#00d4aa" opacity="0.9"
             />
           </svg>
         </div>
@@ -505,12 +393,12 @@
       <div class="firebase-notice-icon">ℹ</div>
       <div class="firebase-notice-text">
         Replace the Firebase config in the <code>&lt;script&gt;</code> block
-        below with your project credentials to connect live data. The dashboard
-        currently runs on <strong>simulated data</strong> that mirrors realistic
-        ESP32 sensor readings. Path structure expected:
+        below with your project credentials to connect live data. Path structure expected:
         <code>/solar/voltage</code>, <code>/solar/current</code>,
         <code>/solar/soc</code>, <code>/ac/voltage</code>,
-        <code>/ac/current</code>
+        <code>/ac/current</code>, <code>/battery/voltage</code>,
+        <code>/env/temperature</code>, <code>/env/humidity</code>,
+        <code>/env/irradiance</code>, <code>/env/windSpeed</code>
       </div>
     </div>
 
@@ -518,160 +406,70 @@
     <div class="mb-section">
       <div class="section-label">PV Panel</div>
 
-      <!-- Top metric cards -->
-      <div
-        class="cards-row"
-        style="grid-template-columns: repeat(3, 1fr); margin-bottom: 14px"
-      >
+      <div class="cards-row" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 14px">
         <div class="card">
           <div class="card-accent teal"></div>
           <div class="card-label">Voltage</div>
-          <div class="card-value teal" id="pv-v-card">
-            —<span class="card-unit">V</span>
-          </div>
+          <div class="card-value teal" id="pv-v-card">—<span class="card-unit">V</span></div>
           <div class="card-delta" id="pv-v-delta">—</div>
         </div>
         <div class="card">
           <div class="card-accent blue"></div>
           <div class="card-label">Current</div>
-          <div class="card-value blue" id="pv-i-card">
-            —<span class="card-unit">A</span>
-          </div>
+          <div class="card-value blue" id="pv-i-card">—<span class="card-unit">A</span></div>
           <div class="card-delta" id="pv-i-delta">—</div>
         </div>
         <div class="card">
           <div class="card-accent amber"></div>
-          <div class="card-label">Efficiency</div>
-          <div class="card-value amber" id="pv-eff-card">
-            —<span class="card-unit">%</span>
-          </div>
-          <div class="card-delta">of rated capacity</div>
+          <div class="card-label">Battery DC Voltage</div>
+          <div class="card-value amber" id="bat-v-card">—<span class="card-unit">V</span></div>
+          <div class="card-delta" id="bat-v-delta">—</div>
         </div>
       </div>
 
-      <div class="main-grid">
-        <!-- Charts -->
-        <div class="charts-col">
-          <div class="chart-card">
-            <div class="chart-title">
-              <span
-                >PV Voltage
-                <span style="color: var(--text-muted)">/ real-time</span></span
-              >
-              <span class="chart-badge teal" id="pv-v-badge">— V</span>
-            </div>
-            <div class="chart-wrap">
-              <canvas
-                id="pvVChart"
-                role="img"
-                aria-label="Real-time PV voltage chart"
-                >PV voltage over time.</canvas
-              >
-            </div>
+      <div class="grid-2">
+        <!-- Power Card -->
+        <div class="power-card">
+          <div class="card-label">Calculated Power · P = I × V</div>
+          <div class="power-formula">
+            P = <span id="pw-i">—</span> A × <span id="pw-v">—</span> V
           </div>
-          <div class="chart-card">
-            <div class="chart-title">
-              <span
-                >PV Current
-                <span style="color: var(--text-muted)">/ real-time</span></span
-              >
-              <span class="chart-badge blue" id="pv-i-badge">— A</span>
-            </div>
-            <div class="chart-wrap">
-              <canvas
-                id="pvIChart"
-                role="img"
-                aria-label="Real-time PV current chart"
-                >PV current over time.</canvas
-              >
-            </div>
+          <div class="power-display">
+            <div class="power-big" id="power-val">—</div>
+            <div class="power-watt">W</div>
+          </div>
+          <div class="power-bar-wrap">
+            <div class="power-bar-fill" id="power-bar" style="width: 0%"></div>
+          </div>
+          <div class="power-limit">
+            <span>0 W</span>
+            <span id="power-bar-lbl">Max: — W</span>
           </div>
         </div>
 
-        <!-- Power + SOC -->
-        <div class="right-col">
-          <!-- Power Card -->
-          <div class="power-card">
-            <div class="card-label">Calculated Power · P = I × V</div>
-            <div class="power-formula">
-              P = <span id="pw-i">—</span> A × <span id="pw-v">—</span> V
+        <!-- SOC Card -->
+        <div class="soc-card">
+          <div class="section-label" style="margin-bottom: 12px">Battery SOC</div>
+          <div class="soc-header">
+            <div>
+              <div class="soc-number" id="soc-num" style="color: var(--teal)">
+                —<span class="soc-pct">%</span>
+              </div>
+              <div class="soc-status" id="soc-status">Awaiting data...</div>
             </div>
-            <div class="power-display">
-              <div class="power-big" id="power-val">—</div>
-              <div class="power-watt">W</div>
-            </div>
-            <div class="power-bar-wrap">
-              <div
-                class="power-bar-fill"
-                id="power-bar"
-                style="width: 0%"
-              ></div>
-            </div>
-            <div class="power-limit">
-              <span>0 W</span>
-              <span id="power-bar-lbl">Max: — W</span>
+            <div class="soc-icon">
+              <svg id="soc-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4"  y="10" width="36" height="28" rx="4" stroke="#3d5166" stroke-width="2"/>
+                <rect x="40" y="18" width="4"  height="12" rx="2" fill="#3d5166"/>
+                <rect x="7"  y="13" width="0"  height="22" rx="2" id="bat-fill" fill="#00d4aa"/>
+              </svg>
             </div>
           </div>
-
-          <!-- SOC Card -->
-          <div class="soc-card">
-            <div class="section-label" style="margin-bottom: 12px">
-              Battery SOC
-            </div>
-            <div class="soc-header">
-              <div class="soc-value-block">
-                <div class="soc-number" id="soc-num" style="color: var(--teal)">
-                  —<span class="soc-pct">%</span>
-                </div>
-                <div class="soc-status" id="soc-status">Awaiting data...</div>
-              </div>
-              <div class="soc-icon">
-                <svg
-                  id="soc-svg"
-                  viewBox="0 0 48 48"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    x="4"
-                    y="10"
-                    width="36"
-                    height="28"
-                    rx="4"
-                    stroke="#3d5166"
-                    stroke-width="2"
-                  />
-                  <rect
-                    x="40"
-                    y="18"
-                    width="4"
-                    height="12"
-                    rx="2"
-                    fill="#3d5166"
-                  />
-                  <rect
-                    x="7"
-                    y="13"
-                    width="0"
-                    height="22"
-                    rx="2"
-                    id="bat-fill"
-                    fill="#00d4aa"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div class="soc-track">
-              <div
-                class="soc-fill"
-                id="soc-fill"
-                style="width: 0%; background: var(--teal)"
-              ></div>
-            </div>
-            <div class="soc-segments">
-              <span>0%</span><span>25%</span><span>50%</span><span>75%</span
-              ><span>100%</span>
-            </div>
+          <div class="soc-track">
+            <div class="soc-fill" id="soc-fill" style="width: 0%; background: var(--teal)"></div>
+          </div>
+          <div class="soc-segments">
+            <span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span>
           </div>
         </div>
       </div>
@@ -681,62 +479,50 @@
     <div class="mb-section">
       <div class="section-label">AC Bus</div>
 
-      <div
-        class="cards-row"
-        style="grid-template-columns: repeat(2, 1fr); margin-bottom: 14px"
-      >
+      <div class="cards-row" style="grid-template-columns: repeat(2, 1fr)">
         <div class="card">
           <div class="card-accent amber"></div>
           <div class="card-label">AC Voltage</div>
-          <div class="card-value amber" id="ac-v-card">
-            —<span class="card-unit">V</span>
-          </div>
+          <div class="card-value amber" id="ac-v-card">—<span class="card-unit">V</span></div>
           <div class="card-delta" id="ac-v-delta">—</div>
         </div>
         <div class="card">
           <div class="card-accent red"></div>
           <div class="card-label">AC Current</div>
-          <div class="card-value red" id="ac-i-card">
-            —<span class="card-unit">A</span>
-          </div>
+          <div class="card-value red" id="ac-i-card">—<span class="card-unit">A</span></div>
           <div class="card-delta" id="ac-i-delta">—</div>
         </div>
       </div>
+    </div>
 
-      <div class="grid-2">
-        <div class="chart-card">
-          <div class="chart-title">
-            <span
-              >AC Bus Voltage
-              <span style="color: var(--text-muted)">/ real-time</span></span
-            >
-            <span class="chart-badge amber" id="ac-v-badge">— V</span>
-          </div>
-          <div class="chart-wrap">
-            <canvas
-              id="acVChart"
-              role="img"
-              aria-label="Real-time AC bus voltage chart"
-              >AC bus voltage over time.</canvas
-            >
-          </div>
+    <!-- ── Environment Section ── -->
+    <div class="mb-section">
+      <div class="section-label">Environment</div>
+
+      <div class="cards-row" style="grid-template-columns: repeat(4, 1fr)">
+        <div class="card">
+          <div class="card-accent red"></div>
+          <div class="card-label">Temperature</div>
+          <div class="card-value red" id="env-temp-card">—<span class="card-unit">°C</span></div>
+          <div class="card-delta" id="env-temp-delta">—</div>
         </div>
-        <div class="chart-card">
-          <div class="chart-title">
-            <span
-              >AC Bus Current
-              <span style="color: var(--text-muted)">/ real-time</span></span
-            >
-            <span class="chart-badge red" id="ac-i-badge">— A</span>
-          </div>
-          <div class="chart-wrap">
-            <canvas
-              id="acIChart"
-              role="img"
-              aria-label="Real-time AC bus current chart"
-              >AC bus current over time.</canvas
-            >
-          </div>
+        <div class="card">
+          <div class="card-accent blue"></div>
+          <div class="card-label">Humidity</div>
+          <div class="card-value blue" id="env-hum-card">—<span class="card-unit">%</span></div>
+          <div class="card-delta" id="env-hum-delta">—</div>
+        </div>
+        <div class="card">
+          <div class="card-accent teal"></div>
+          <div class="card-label">Irradiance</div>
+          <div class="card-value teal" id="env-lux-card">—<span class="card-unit">lx</span></div>
+          <div class="card-delta" id="env-lux-delta">—</div>
+        </div>
+        <div class="card">
+          <div class="card-accent amber"></div>
+          <div class="card-label">Wind Speed</div>
+          <div class="card-value amber" id="env-wind-card">—<span class="card-unit">m/s</span></div>
+          <div class="card-delta" id="env-wind-delta">—</div>
         </div>
       </div>
     </div>
@@ -748,8 +534,7 @@
       const FIREBASE_CONFIG = {
         apiKey: "AIzaSyDew2TFnUlK2hwMh80_Nnz7DmkCS30rXGE",
         authDomain: "micro-grid-caf7e.firebaseapp.com",
-        databaseURL:
-          "https://micro-grid-caf7e-default-rtdb.europe-west1.firebasedatabase.app/",
+        databaseURL: "https://micro-grid-caf7e-default-rtdb.europe-west1.firebasedatabase.app/",
         projectId: "micro-grid-caf7e",
       };
       /* ══════════════════════════════════════════════════════ */
@@ -762,104 +547,6 @@
         const d = new Date();
         return d.toLocaleTimeString("en-GB", { hour12: false });
       }
-
-      // ── Chart factory ────────────────────────────────────
-      const MAX_POINTS = 30;
-
-      function makeChart(id, color, label, unit) {
-        const ctx = document.getElementById(id).getContext("2d");
-        const data = {
-          labels: [],
-          datasets: [
-            {
-              label,
-              data: [],
-              borderColor: color,
-              borderWidth: 1.5,
-              pointRadius: 0,
-              tension: 0.4,
-              fill: true,
-              backgroundColor: color
-                .replace(")", ", 0.06)")
-                .replace("rgb", "rgba"),
-            },
-          ],
-        };
-        return new Chart(ctx, {
-          type: "line",
-          data,
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            animation: { duration: 300 },
-            plugins: {
-              legend: { display: false },
-              tooltip: {
-                enabled: true,
-                callbacks: {
-                  label: (ctx) => ` ${ctx.parsed.y.toFixed(2)} ${unit}`,
-                },
-              },
-            },
-            scales: {
-              x: {
-                ticks: {
-                  color: "#3d5166",
-                  font: { family: "IBM Plex Mono", size: 9 },
-                  maxTicksLimit: 6,
-                },
-                grid: { color: "rgba(255,255,255,0.04)" },
-                border: { color: "transparent" },
-              },
-              y: {
-                ticks: {
-                  color: "#3d5166",
-                  font: { family: "IBM Plex Mono", size: 9 },
-                  maxTicksLimit: 5,
-                },
-                grid: { color: "rgba(255,255,255,0.04)" },
-                border: { color: "transparent" },
-              },
-            },
-          },
-        });
-      }
-
-      function pushPoint(chart, label, value) {
-        chart.data.labels.push(label);
-        chart.data.datasets[0].data.push(value);
-        if (chart.data.labels.length > MAX_POINTS) {
-          chart.data.labels.shift();
-          chart.data.datasets[0].data.shift();
-        }
-        chart.update("none");
-      }
-
-      // ── Init charts ──────────────────────────────────────
-      const pvVChart = makeChart(
-        "pvVChart",
-        "rgb(0,212,170)",
-        "PV Voltage",
-        "V",
-      );
-      const pvIChart = makeChart(
-        "pvIChart",
-        "rgb(74,168,245)",
-        "PV Current",
-        "A",
-      );
-      const acVChart = makeChart(
-        "acVChart",
-        "rgb(245,166,35)",
-        "AC Voltage",
-        "V",
-      );
-      const acIChart = makeChart(
-        "acIChart",
-        "rgb(245,74,74)",
-        "AC Current",
-        "A",
-      );
 
       // ── SOC helpers ──────────────────────────────────────
       function getSocColor(soc) {
@@ -882,15 +569,8 @@
         document.getElementById("soc-status").textContent = getSocStatus(soc);
         document.getElementById("soc-fill").style.width = soc + "%";
         document.getElementById("soc-fill").style.background = color;
-        // battery SVG fill
-        const fillW = (soc / 100) * 30;
         const batFill = document.getElementById("bat-fill");
-        batFill.setAttribute("width", fillW.toFixed(1));
-        batFill.setAttribute(
-          "fill",
-          color.replace("var(", "").replace(")", ""),
-        );
-        // resolve CSS var hack
+        batFill.setAttribute("width", ((soc / 100) * 30).toFixed(1));
         batFill.style.fill = color;
       }
 
@@ -904,18 +584,13 @@
         document.getElementById("pw-i").textContent = fmt(i, 2);
         const pct = maxPower > 0 ? Math.min(100, (p / maxPower) * 100) : 0;
         document.getElementById("power-bar").style.width = pct.toFixed(1) + "%";
-        document.getElementById("power-bar-lbl").textContent =
-          `Max: ${fmt(maxPower, 1)} W`;
+        document.getElementById("power-bar-lbl").textContent = `Max: ${fmt(maxPower, 1)} W`;
       }
 
       // ── Card helpers ──────────────────────────────────────
       function updateCard(id, val, unit, decimals = 1) {
         document.getElementById(id).innerHTML =
           `${fmt(val, decimals)}<span class="card-unit">${unit}</span>`;
-      }
-      function updateBadge(id, val, unit, decimals = 2) {
-        document.getElementById(id).textContent =
-          `${fmt(val, decimals)} ${unit}`;
       }
       function updateDelta(id, val, unit) {
         document.getElementById(id).textContent =
@@ -927,104 +602,118 @@
         document.getElementById("ts").textContent = timeLabel();
       }, 1000);
 
-      // ══════════════════════════════════════════════════════
-      //  DATA LAYER — swap this block to connect Firebase
-      // ══════════════════════════════════════════════════════
-      let prevPvV = null,
-        prevPvI = null,
-        prevAcV = null,
-        prevAcI = null;
+      // ── State ─────────────────────────────────────────────
+      let prevPvV = null, prevPvI = null, prevAcV = null, prevAcI = null;
+      let prevBatV = null, prevTemp = null, prevHum = null, prevLux = null, prevWind = null;
 
       function processData(data) {
-        const t = timeLabel();
-        const pvV = data.pvVoltage;
-        const pvI = data.pvCurrent;
-        const soc = data.soc;
-        const acV = data.acVoltage;
-        const acI = data.acCurrent;
+        const pvV  = data.pvVoltage;
+        const pvI  = data.pvCurrent;
+        const soc  = data.soc;
+        const acV  = data.acVoltage;
+        const acI  = data.acCurrent;
+        const batV = data.batteryVoltage;
+        const temp = data.temperature;
+        const hum  = data.humidity;
+        const lux  = data.irradiance;
+        const wind = data.windSpeed;
 
-        // PV charts & cards
-        pushPoint(pvVChart, t, pvV);
-        pushPoint(pvIChart, t, pvI);
+        // PV cards
         updateCard("pv-v-card", pvV, "V");
         updateCard("pv-i-card", pvI, "A", 2);
-        updateBadge("pv-v-badge", pvV, "V");
-        updateBadge("pv-i-badge", pvI, "A");
         if (prevPvV !== null) updateDelta("pv-v-delta", pvV - prevPvV, "V");
         if (prevPvI !== null) updateDelta("pv-i-delta", pvI - prevPvI, "A");
-        prevPvV = pvV;
-        prevPvI = pvI;
+        prevPvV = pvV; prevPvI = pvI;
 
-        // Efficiency (rough % of rated, assume 18V / 5A rated)
-        const eff = Math.min(100, (pvV / 18) * 100);
-        updateCard("pv-eff-card", eff, "%");
+        // Battery DC voltage card
+        updateCard("bat-v-card", batV, "V", 2);
+        if (prevBatV !== null) updateDelta("bat-v-delta", batV - prevBatV, "V");
+        prevBatV = batV;
 
-        // Power
+        // Power + SOC
         updatePower(pvV, pvI);
-
-        // SOC
         updateSOC(soc);
 
-        // AC charts & cards
-        pushPoint(acVChart, t, acV);
-        pushPoint(acIChart, t, acI);
+        // AC cards
         updateCard("ac-v-card", acV, "V");
         updateCard("ac-i-card", acI, "A", 2);
-        updateBadge("ac-v-badge", acV, "V");
-        updateBadge("ac-i-badge", acI, "A");
         if (prevAcV !== null) updateDelta("ac-v-delta", acV - prevAcV, "V");
         if (prevAcI !== null) updateDelta("ac-i-delta", acI - prevAcI, "A");
-        prevAcV = acV;
-        prevAcI = acI;
+        prevAcV = acV; prevAcI = acI;
+
+        // Environment cards
+        updateCard("env-temp-card", temp, "°C", 1);
+        updateCard("env-hum-card",  hum,  "%",  1);
+        updateCard("env-lux-card",  lux,  "lx", 0);
+        updateCard("env-wind-card", wind, "m/s", 1);
+        if (prevTemp  !== null) updateDelta("env-temp-delta",  temp - prevTemp,  "°C");
+        if (prevHum   !== null) updateDelta("env-hum-delta",   hum  - prevHum,   "%");
+        if (prevLux   !== null) updateDelta("env-lux-delta",   lux  - prevLux,   "lx");
+        if (prevWind  !== null) updateDelta("env-wind-delta",  wind - prevWind,  "m/s");
+        prevTemp = temp; prevHum = hum; prevLux = lux; prevWind = wind;
+      }
+    </script>
+
+    <!-- Firebase compat SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+
+    <script>
+      firebase.initializeApp(FIREBASE_CONFIG);
+      const db = firebase.database();
+
+      const lastSolar = {};
+      const lastAc    = {};
+      const lastBat   = {};
+      const lastEnv   = {};
+
+      function firebaseUpdate() {
+        processData({
+          pvVoltage:      lastSolar.voltage   ?? 0,
+          pvCurrent:      lastSolar.current   ?? 0,
+          soc:            lastSolar.soc       ?? 0,
+          acVoltage:      lastAc.voltage      ?? 0,
+          acCurrent:      lastAc.current      ?? 0,
+          batteryVoltage: lastBat.voltage     ?? 0,
+          temperature:    lastEnv.temperature ?? 0,
+          humidity:       lastEnv.humidity    ?? 0,
+          irradiance:     lastEnv.irradiance  ?? 0,
+          windSpeed:      lastEnv.windSpeed   ?? 0,
+        });
       }
 
-      /* ── Simulation (remove when Firebase is connected) ── */
-      function simulate() {
-        const t = Date.now() / 1000;
-        return {
-          pvVoltage: 15 + 3 * Math.sin(t / 20) + (Math.random() - 0.5) * 0.4,
-          pvCurrent:
-            3.2 + 0.8 * Math.sin(t / 25 + 1) + (Math.random() - 0.5) * 0.15,
-          soc: 55 + 20 * Math.sin(t / 120) + (Math.random() - 0.5) * 2,
-          acVoltage:
-            220 + 5 * Math.sin(t / 15 + 0.5) + (Math.random() - 0.5) * 1.5,
-          acCurrent:
-            4.5 + 1.2 * Math.sin(t / 18 + 2) + (Math.random() - 0.5) * 0.2,
-        };
-      }
+      db.ref('solar').on('value', (snap) => {
+        const d = snap.val();
+        if (!d) return;
+        lastSolar.voltage = d.voltage;
+        lastSolar.current = d.current;
+        lastSolar.soc     = d.soc;
+        firebaseUpdate();
+      });
 
-    // ediate first render
+      db.ref('ac').on('value', (snap) => {
+        const d = snap.val();
+        if (!d) return;
+        lastAc.voltage = d.voltage;
+        lastAc.current = d.current;
+      });
 
-</script>
-<!-- Firebase compat SDKs (paste BEFORE your closing </body> tag) -->
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+      db.ref('battery').on('value', (snap) => {
+        const d = snap.val();
+        if (!d) return;
+        lastBat.voltage = d.voltage;
+        firebaseUpdate();
+      });
 
-<script>
- 
-  firebase.initializeApp(FIREBASE_CONFIG);
-  const db = firebase.database();
-
-  const lastAc = {};
-
-  db.ref('solar').on('value', (snap) => {
-    const d = snap.val();
-    if (!d) return;
-    processData({
-      pvVoltage: d.voltage,
-      pvCurrent: d.current,
-      soc:       d.soc,
-      acVoltage: lastAc.voltage ?? 0,
-      acCurrent: lastAc.current ?? 0,
-    });
-  });
-
-  db.ref('ac').on('value', (snap) => {
-    const d = snap.val();
-    if (!d) return;
-    lastAc.voltage = d.voltage;
-    lastAc.current = d.current;
-  });
-</script>
-</body>
+      db.ref('env').on('value', (snap) => {
+        const d = snap.val();
+        if (!d) return;
+        lastEnv.temperature = d.temperature;
+        lastEnv.humidity    = d.humidity;
+        lastEnv.irradiance  = d.irradiance;
+        lastEnv.windSpeed   = d.windSpeed;
+        firebaseUpdate();
+      });
+    </script>
+  </body>
 </html>
