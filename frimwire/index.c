@@ -16,9 +16,9 @@
 // GPIO34 is ADC-only (safe for input). Adjust R1/R2 to match
 // your resistor values. Max measurable = 3.3 * (R1+R2)/R2
 // Example: R1=30kΩ, R2=10kΩ → max ≈ 13.2 V (good for 12 V systems)
-#define BAT_ADC_PIN      34
-#define R1               30000.0f   // upper resistor (Ω)
-#define R2               10000.0f   // lower resistor (Ω)
+#define BAT_ADC_PIN      35
+#define R1               99200.0f   // upper resistor (Ω)
+#define R2               15160.0f   // lower resistor (Ω)
 #define ADC_REF          3.3f       // ESP32 ADC reference voltage
 #define ADC_RESOLUTION   4095.0f    // 12-bit ADC
 
